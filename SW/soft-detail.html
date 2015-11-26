@@ -1,0 +1,230 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>沙漏软件</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<link href="css/font.css" rel="stylesheet"/>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+    <script src="../../js/jsrender.min.js"></script>
+    <script id="xiangqing" type="text/x-jsrender">
+        
+        <p>软件名称：<span> {{:xq.swName}} </span></p>
+        <p>软件大小：<span>  {{:xq.swSize}} MB</span></p>
+        <p>更新时间：<span>2015-5-15</span></p>
+        <p>运行平台：<span> {{:xq.swSystem}} </span></p>
+        <p>语&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言：<span>{{:xq.swLanguage}} </span></p>
+        
+        <p>评&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分：<span>00</span></p>
+        
+    </script>
+
+    <script>
+        $(function () {
+            //网页加载完成时开启
+            $("#xqid").text("正在加载...");
+            loadSW();
+        })
+        function loadSW() {
+            $.ajax({
+                cache: false,
+                type: "get",
+                url: "soft-detail.ashx",
+                dataType: "json",
+                success: function (json) {
+                    //var da = json.photos
+                    //jsrender渲染html代码
+                    var html = $("#xiangqing").render({ xq: json });
+                    $("#xqid").html(html);
+                },
+                error: function () {
+                    alert("服务器内部错误 ");
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+<!--header-->
+<div class="container-fluid plr0">
+   <div class="row h-bg" style="margin-left:0;margin-right:0;" >
+       <div class="col-lg-2"></div>
+       <div class="col-lg-2">
+          <img src="img/logo.png" class="img-responsive"/>
+       </div>
+       <div class="col-lg-1"></div>
+       <div class="col-lg-6 h-nav">
+           <ul>
+              <li class="huibai18 curr"><a href="index.html">首页</a></li>
+              <li class="huibai18"><a href="sysSoft.html">系统软件</a></li>
+              <li class="huibai18"><a href="offSoft.html">办公软件</a></li>
+              <li class="huibai18"><a href="medSoft.html">娱乐软件</a></li>
+              <li class="huibai18"><a href="#">上传</a></li>
+           </ul>
+       </div>
+       <div class="col-lg-1"></div>
+   </div>
+</div>
+
+<!--content-->
+<div class=" container-fluid">
+
+  <div class="row shenhui14" style="margin-top:2%;">
+     <div class="col-lg-2"></div>
+     <!--nav-label-->
+     <div class="col-lg-3" style="line-height:34px;">
+      当前位置： <a href="index.html">首页>></a><a href="soft-detail.html">软件详情>></a>
+     </div>
+     <div class="col-lg-3"></div>
+     <!-- search-->
+     <div class="col-lg-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Soft" aria-describedby="basic-addon2">
+            <a class="input-group-addon  btn btn-default glyphicon glyphicon-search search-style" 
+           id="basic-addon2" role="button"></a>
+        </div>
+     </div>
+     <div class="col-lg-2"></div>
+  </div>
+
+<!--new product-->
+
+  <div class="row np">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <h4>软件详情</h4>
+        <div class="np-list">
+          <a href="#" class="shenhui14">
+          <img src="img/label.png"/>
+           </a>
+           <button class=" btn  btn-primary">下载</button>
+        </div>
+        <div class=" list-detail">
+          
+          
+          <div id="xqid"></div>
+         
+        </div>
+        
+    </div>
+    <div class="col-lg-2"></div>  
+  </div>
+<!--comment-->
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+    <h4>评论：</h4>
+      <div class="mag2" style="height:160px;">
+         <img src="img/pic42_null.gif" style="float:left;"/>
+         <textarea cols="110" rows="4"  class="text-style" placeholder="随便说两句..."></textarea>
+          <button class="btn btn-info" style="float:left; margin-left:6%; margin-top:1%; ">评论</button>
+       </div>
+       
+    <div class="mag2">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">最新评论</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">已有评论</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">业内评论</a></li>
+    
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+       <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">还不错。。。</p>
+       </div>
+        <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">还不错。。。</p>
+       </div>
+        <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">还不错。。。</p>
+       </div>
+        <nav class="newsnav mag2" style="text-indent:0;line-height: 32px;"><!-- -->
+                <ul class="newapag news_page">
+                    <li aria-hidden="true" class="previous  mob-l"> <a href="#">上一页</a></li>   <!--2015-9-7-20:51改-->
+                     <li class="active hidden-xs"><a href="#" id="curr">1 </a></li>
+                     <li  class="hidden-xs"><a href="#">2</a></li>                   
+                     <li  class="hidden-xs"><a href="#">3</a></li>
+                     <li  class="hidden-xs"><a href="#">4</a></li>
+                     <li  class="hidden-xs"><a href="#">5</a></li>
+                     <li  class="next  mob-r"  aria-hidden="true"><a href="#">下一页</a></li>   <!--2015-9-7-20:51改-->
+                </ul>
+        </nav>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+       <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">day day。</p>
+       </div>
+        <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">还不错。。。</p>
+       </div>
+        <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">还不错。。。</p>
+       </div>
+        <nav class="newsnav mag2" style="text-indent:0;line-height: 32px;"><!-- -->
+                <ul class="newapag news_page">
+                    <li aria-hidden="true" class="previous  mob-l"> <a href="#">上一页</a></li>   <!--2015-9-7-20:51改-->
+                     <li class="active hidden-xs"><a href="#" id="curr">1 </a></li>
+                     <li  class="hidden-xs"><a href="#">2</a></li>                   
+                     <li  class="hidden-xs"><a href="#">3</a></li>
+                     <li  class="hidden-xs"><a href="#">4</a></li>
+                     <li  class="hidden-xs"><a href="#">5</a></li>
+                     <li  class="next  mob-r"  aria-hidden="true"><a href="#">下一页</a></li>   <!--2015-9-7-20:51改-->
+                </ul>
+        </nav>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+      <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">行内评吧。</p>
+       </div>
+        <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">还不错。。。</p>
+       </div>
+        <div class="mag2">
+       <img src="img/pic42_null.gif" style="float:left;"/>
+       <p class="comment-list">还不错。。。</p>
+       </div>
+        <nav class="newsnav mag2" style="text-indent:0;line-height: 32px;"><!-- -->
+                <ul class="newapag news_page">
+                    <li aria-hidden="true" class="previous  mob-l"> <a href="#">上一页</a></li>   <!--2015-9-7-20:51改-->
+                     <li class="active hidden-xs"><a href="#" id="curr">1 </a></li>
+                     <li  class="hidden-xs"><a href="#">2</a></li>                   
+                     <li  class="hidden-xs"><a href="#">3</a></li>
+                     <li  class="hidden-xs"><a href="#">4</a></li>
+                     <li  class="hidden-xs"><a href="#">5</a></li>
+                     <li  class="next  mob-r"  aria-hidden="true"><a href="#">下一页</a></li>   <!--2015-9-7-20:51改-->
+                </ul>
+        </nav>
+    </div>
+ 
+  </div>
+
+</div> 
+    </div>
+    <div class="col-lg-2"></div>  
+  </div>  
+</div>
+<!--footer-->
+<div class="footer mag2">
+  <p class="huibai12">Copyright @2015 沙漏软件 All right reserved  </p>
+</div>
+
+</body>
+</html>
+

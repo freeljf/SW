@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+.huibai18{ font-size:18px; color:#CCC; text-decoration:none;}
+.huibai18 a{ font-size:18px; color:#CCC; text-decoration:none;}
+.huibai18 a:hover{ font-size:18px; color:#0CC; text-decoration:none;}
+
+.shenhui14{ font-size:14px; color:#666; text-decoration:none;}
+.shenhui14 a{ font-size:14px; color:#666; text-decoration:none;}
+.shenhui14 a:hover{ font-size:14px; color:#0CC; text-decoration:none;}
+
+.huibai12{ font-size:12px; color:#CCC; text-decoration:none;}
+.huibai12 a{ font-size:12px; color:#CCC; text-decoration:none;}
+.huibai12 a:hover{ font-size:12px; color:#0CC; text-decoration:none;}
